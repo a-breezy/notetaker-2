@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 
+const PORT = process.envPORT || 3001;
 const data = require("./db/db.json");
 
 // filter by id query
@@ -42,6 +43,6 @@ app.post("/api/notes", (req, res) => {
 // give each note a new id
 // create api route: DELETE /api/notes/:id to delete a note
 
-app.listen(3001, () => {
-	console.log(`Server running on port 3001`);
+app.listen(PORT, () => {
+	console.log(`Server running on port ${PORT}`);
 });
