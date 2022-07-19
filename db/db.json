@@ -1,27 +1,34 @@
-[
+{
+  "notes": [
     {
-        "id": "0",
-        "title":"Get Groceries",
-        "text":"Coconuts, limes, avocado, tortilla"
+      "id": "0",
+      "title": "Get Groceries",
+      "text": "Coconuts, limes, avocado, tortilla"
     },
     {
-        "id": "1",
-        "title":"Do something new",
-        "text":"Visit a museum or something similar"
+      "id": "1",
+      "title": "Do something new",
+      "text": "Visit a museum or something similar"
     },
     {
-        "id": "2",
-        "title":"Meet Leo",
-        "text":"Downtown"
+      "id": "2",
+      "title": "Meet Leo",
+      "text": "Downtown"
     },
     {
-        "id": "3",
-        "title":"See the new Thor",
-        "text":"Midtown of BK?"
+      "id": "3",
+      "title": "See the new Thor",
+      "text": "Midtown of BK?"
     },
     {
-        "id": "4",
-        "title":"Plan the next escape",
-        "text":"Because it's time"
+      "id": "4",
+      "title": "Plan the next escape",
+      "text": "Because it's time"
+    },
+    {
+      "title": "Get APi working",
+      "text": "start with posting a new note",
+      "id": "5"
     }
-]
+  ]
+}
