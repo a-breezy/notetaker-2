@@ -5,43 +5,45 @@ const PORT = process.envPORT || 3001;
 const data = require("./db/db.json");
 
 // filter by id query
-function filterById(query, noteArray) {
-	let filteredResult = noteArray;
-	if (query.id) {
-		filteredResult = filteredResult.filter((note) => note.id === query.id);
-	}
-    return filteredResult;
+function findById(id, noteArray) {
+	let result = noteArray.filter((note) => note.id === id)[0];
+	return result;
 }
 
-// create html routes: GET /notes which returns notes.html
+// get each note html
 app.get("/notes", (req, res) => {
 	res.send("get notes here");
 });
-// create html routes: GET /* which returns index.html
+// get html base
 app.get("/", (req, res) => {
 	res.send("get html here");
 });
 
-// create api routes: GET /api/notes which reads db.json and returns all saved json
+// get all notes
 app.get("/api/notes", (req, res) => {
-	let notes = data;
-	// search the query
-	if (req.query) {
-		console.log(30, req.query);
-		notes = filterById(req.query, notes);
-	}
-	console.log("notes 2", notes);
-	// get notes from data
-	res.json(notes);
+	res.json(data);
 });
 
-// create api routes: POST /api/notes which saves note to request and returns all note to the client
+// get note by id /api/notes/:id
+app.get("/api/notes/:id", (req, res) => {
+	const result = findById(req.params.id, data);
+	if (result) {
+		res.json(result);
+	} else {
+		res.sendStatus(404);
+	}
+});
+
+// post new note to api
 app.post("/api/notes", (req, res) => {
 	res.send("posting notes to api");
 	// res.json()
 });
-// give each note a new id
-// create api route: DELETE /api/notes/:id to delete a note
+
+// delete note from api
+app.delete("/api/notes/:id", (req, res) => {
+	// delete note
+});
 
 app.listen(PORT, () => {
 	console.log(`Server running on port ${PORT}`);

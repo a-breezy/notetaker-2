@@ -5,6 +5,11 @@
         "text":"Coconuts, limes, avocado, tortilla"
     },
     {
+        "id": "1",
+        "title":"Do something new",
+        "text":"Visit a museum or something similar"
+    },
+    {
         "id": "2",
         "title":"Meet Leo",
         "text":"Downtown"
