@@ -11,6 +11,8 @@ const PORT = process.envPORT || 3001;
 app.use(express.urlencoded({ extended: true }));
 // parse incoming json data
 app.use(express.json());
+// have static files (css/js) available on server
+app.use(express.static("public"));
 
 // function definitions
 // filter by id param
@@ -41,13 +43,14 @@ function validateNote(note) {
 	return true;
 }
 
-// get each note html
-app.get("/notes", (req, res) => {
-	res.send("get notes here");
-});
-// get html base
+// serve index.html
 app.get("/", (req, res) => {
-	res.send("get html here");
+	res.sendFile(path.join(__dirname, "./public/index.html"));
+});
+
+// serve note.html
+app.get("/notes", (req, res) => {
+	res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 // get all notes
