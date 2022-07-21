@@ -83,9 +83,25 @@ app.post("/api/notes", (req, res) => {
 	}
 });
 
+// update note from api
+app.put("/api/notes/:id", (req, res) => {
+	// const result = findById(req.params.id, notes);
+	// if(result){
+
+	// }
+	res.send("here's where you update notes");
+});
+
 // delete note from api
 app.delete("/api/notes/:id", (req, res) => {
-	// delete note
+	// const result = findById(req.params.id, notes);
+
+	res.send("here's where you delete note");
+});
+
+// user tries to go to other route
+app.get("*", (req, res) => {
+	res.sendFile(path.join(__dirname, "./public/index.html"));
 });
 
 app.listen(PORT, () => {
