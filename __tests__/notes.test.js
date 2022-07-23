@@ -1,13 +1,15 @@
-const fs = require("fs");
+jest.mock("fs");
+
+// const fs = require("fs");
+// const path = require("path");
 const {
 	findById,
 	createNewNote,
 	validateNote,
 } = require("../lib/serverFunctions");
-const notes = require("../db/db");
+const notes = require("../db/db.json");
 
 // mock writing to db file
-jest.mock("fs");
 test("creates a new note", () => {
 	const note = createNewNote(
 		{ title: "get coconuts", text: "go to store and buy multiple coconuts" },
