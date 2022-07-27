@@ -16,13 +16,12 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
 	// set id for new note
 	req.body.id = notes.length.toString();
-	console.log("notesArray in post route befor createNewNote", notes);
 	if (!validateNote(req.body)) {
 		res.status(400).send("This note is not formatted properly");
+	} else {
+		const note = createNewNote(req.body, notes);
+		res.json(note);
 	}
-	// problem: when adding new note, notesArr gets rewritten
-	const note = createNewNote(req.body, notes);
-	res.json(note);
 });
 
 // update note from api
