@@ -16,6 +16,7 @@ router.get("/notes", (req, res) => {
 router.post("/notes", (req, res) => {
 	// set id for new note
 	req.body.id = notes.length.toString();
+	console.log("notesArray in post route befor createNewNote", notes);
 	if (!validateNote(req.body)) {
 		res.status(400).send("This note is not formatted properly");
 	}
