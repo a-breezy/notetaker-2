@@ -31,11 +31,6 @@ const getNotes = () =>
 		headers: {
 			"Content-Type": "application/json",
 		},
-	}).then((response) => {
-		if (response.ok) {
-			console.log(response);
-		}
-		console.log("error: ", response.statusText);
 	});
 
 const saveNote = (note) =>
@@ -45,11 +40,6 @@ const saveNote = (note) =>
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify(note),
-	}).then((response) => {
-		if (response.ok) {
-			console.log(response);
-		}
-		console.log("error: ", response.statusText);
 	});
 
 // in the works to update a note
@@ -60,11 +50,6 @@ const updateNote = (note) =>
 			"Content-Type": "application/json",
 		},
 		body: JSON.stringify(note),
-	}).then((response) => {
-		if (response.ok) {
-			console.log(response);
-		}
-		console.log("error: ", response.statusText);
 	});
 
 const deleteNote = (id) =>
@@ -73,11 +58,6 @@ const deleteNote = (id) =>
 		headers: {
 			"Content-Type": "application/json",
 		},
-	}).then((response) => {
-		if (response.ok) {
-			console.log(response);
-		}
-		console.log("error: ", response.statusText);
 	});
 
 const renderActiveNote = () => {
@@ -155,7 +135,6 @@ const renderNoteList = async (notes) => {
 
 	let noteListItems = [];
 
-	// Returns HTML element with or without a delete button
 	const createLi = (text, delBtn = true) => {
 		const liEl = document.createElement("li");
 		liEl.classList.add("list-group-item");
@@ -187,6 +166,8 @@ const renderNoteList = async (notes) => {
 	if (jsonNotes.length === 0) {
 		noteListItems.push(createLi("No saved Notes", false));
 	}
+
+	console.log(jsonNotes);
 
 	jsonNotes.forEach((note) => {
 		const li = createLi(note.title);
