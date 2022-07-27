@@ -35,10 +35,12 @@ router.put("/notes/:id", (req, res) => {
 
 // delete note from api
 router.delete("/notes/:id", (req, res) => {
+	console.log(req.params.id);
 	const result = findById(req.params.id, notes);
+	console.log(result);
 	if (result) {
 		console.log("there is note", result);
-		deleteNote(result, notes);
+		deleteNote(result.id, notes);
 	} else {
 		console.log("theres no note");
 		res.status(400).send("There's no note with this id");
