@@ -7,4 +7,4 @@ A quick project (which turned out to not be too quick) to relearn some of Expres
 [Repo](https://github.com/a-breezy/notetaker-2)
 
 ## Usage
-Check out the deployed app 
+Check out the [deployed app](https://notetaker-2662341.herokuapp.com/) and start adding your own notes! Note will be stored in the database, so write out a note and watch it persist until deleted
