@@ -12,13 +12,17 @@ const notes = require("../db/db.json");
 // mock writing to db file
 test("creates a new note", () => {
 	const note = createNewNote(
-		{ title: "get coconuts", text: "go to store and buy multiple coconuts" },
+		{
+			id: 1,
+			title: "get coconuts",
+			text: "go to store and buy multiple coconuts",
+		},
 		notes
 	);
 
 	expect(note.title).toBe("get coconuts");
 	expect(note.text).toBe("go to store and buy multiple coconuts");
-	expect(note.id).toBe(true);
+	expect(note.id).toBe(1);
 });
 
 test("finds by id", () => {
